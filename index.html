@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savoria | Platform Jual Beli Makanan Kuliner</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-utensils"></i> Savoria<span>.</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="#beranda" class="active">Beranda</a>
+                <a href="#kategori">Kategori</a>
+                <a href="#menu">Menu Populer</a>
+                <a href="#keunggulan">Mengapa Kami</a>
+                <a href="#testimoni">Testimoni</a>
+            </nav>
+            <div class="nav-actions">
+                <div class="cart-btn" onclick="toggleCart()">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-badge" id="cart-count">0</span>
+                </div>
+                <a href="#menu" class="btn btn-primary">Pesan Sekarang</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <span class="badge"><i class="fa-solid fa-fire"></i> Platform Kuliner #1 Terpercaya</span>
+                <h1>Rasakan Kelezatan Otentik Langsung di Meja Anda</h1>
+                <p>Jelajahi ribuan hidangan lezat dari merchant pilihan. Dibuat dengan bahan segar, disajikan penuh cinta, dan diantar secepat kilat.</p>
+                <div class="hero-buttons">
+                    <a href="#menu" class="btn btn-primary btn-lg">Jelajahi Menu <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#keunggulan" class="btn btn-outline btn-lg">Pelajari Selengkapnya</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>50K+</h3>
+                        <p>Pelanggan Setia</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>250+</h3>
+                        <p>Partner Kuliner</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>4.9★</h3>
+                        <p>Rating Kepuasan</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" alt="Hidangan Spesial Savoria">
+                    <div class="floating-card badge-rating">
+                        <i class="fa-solid fa-star"></i>
+                        <div>
+                            <strong>4.9 / 5.0</strong>
+                            <span>Lebih dari 10k ulasan</span>
+                        </div>
+                    </div>
+                    <div class="floating-card badge-delivery">
+                        <i class="fa-solid fa-bolt"></i>
+                        <div>
+                            <strong>Pengiriman 30 Menit</strong>
+                            <span>Jaminan hangat & segar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Section -->
+    <section id="kategori" class="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2>Kategori Pilihan</h2>
+                <p>Temukan makanan sesuai selera dan suasana hati Anda hari ini</p>
+            </div>
+            <div class="category-grid">
+                <div class="category-card active" onclick="filterCategory('all', this)">
+                    <div class="icon"><i class="fa-solid fa-border-all"></i></div>
+                    <h4>Semua</h4>
+                </div>
+                <div class="category-card" onclick="filterCategory('makanan', this)">
+                    <div class="icon"><i class="fa-solid fa-burger"></i></div>
+                    <h4>Makanan Utama</h4>
+                </div>
+                <div class="category-card" onclick="filterCategory('minuman', this)">
+                    <div class="icon"><i class="fa-solid fa-mug-hot"></i></div>
+                    <h4>Minuman Segar</h4>
+                </div>
+                <div class="category-card" onclick="filterCategory('dessert', this)">
+                    <div class="icon"><i class="fa-solid fa-ice-cream"></i></div>
+                    <h4>Dessert & Penutup</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Menu Paling Dicari</h2>
+                <p>Hidangan terpilih yang selalu membuat pelanggan kembali lagi</p>
+            </div>
+            <div class="menu-grid">
+                <!-- Item 1 -->
+                <div class="menu-card" data-category="makanan">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Gourmet Black Angus Burger">
+                        <span class="tag">Bestseller</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="rating"><i class="fa-solid fa-star"></i> 4.9 (320)</div>
+                        <h3>Gourmet Black Angus Burger</h3>
+                        <p>Daging sapi Angus pilihan dengan keju cheddar lumer, caramelized onion, dan saus truffle istimewa.</p>
+                        <div class="card-footer">
+                            <span class="price">Rp 55.000</span>
+                            <button class="btn-add" onclick="addToCart('Gourmet Black Angus Burger', 55000)"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="menu-card" data-category="makanan">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Pizza Artisan Truffle Mushroom">
+                        <span class="tag">Chef Choice</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="rating"><i class="fa-solid fa-star"></i> 4.8 (210)</div>
+                        <h3>Pizza Artisan Truffle Mushroom</h3>
+                        <p>Pizza tipis otentik dengan campuran jamur portobello, keju mozzarella segar, dan minyak truffle aromatik.</p>
+                        <div class="card-footer">
+                            <span class="price">Rp 89.000</span>
+                            <button class="btn-add" onclick="addToCart('Pizza Artisan Truffle Mushroom', 89000)"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="menu-card" data-category="makanan">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80" alt="Salmon Teriyaki Bowl">
+                    </div>
+                    <div class="card-body">
+                        <div class="rating"><i class="fa-solid fa-star"></i> 4.9 (450)</div>
+                        <h3>Salmon Teriyaki Grain Bowl</h3>
+                        <p>Fillet salmon panggang glazed teriyaki, disajikan dengan nasi Jepang hangat, edamame, dan alpukat segar.</p>
+                        <div class="card-footer">
+                            <span class="price">Rp 75.000</span>
+                            <button class="btn-add" onclick="addToCart('Salmon Teriyaki Grain Bowl', 75000)"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="menu-card" data-category="dessert">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80" alt="Belgian Chocolate Souffle">
+                    </div>
+                    <div class="card-body">
+                        <div class="rating"><i class="fa-solid fa-star"></i> 4.7 (180)</div>
+                        <h3>Belgian Chocolate Lava Cake</h3>
+                        <p>Kue cokelat Belgia lembut dengan lelehan cokelat hangat di bagian dalam, disajikan dengan es krim vanilla.</p>
+                        <div class="card-footer">
+                            <span class="price">Rp 42.000</span>
+                            <button class="btn-add" onclick="addToCart('Belgian Chocolate Lava Cake', 42000)"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="menu-card" data-category="minuman">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600&q=80" alt="Iced Matcha Oat Latte">
+                    </div>
+                    <div class="card-body">
+                        <div class="rating"><i class="fa-solid fa-star"></i> 4.9 (290)</div>
+                        <h3>Iced Uji Matcha Oat Latte</h3>
+                        <p>Matcha premium Uji Jepang dipadukan dengan susu oat gurih dan sedikit sentuhan madu murni.</p>
+                        <div class="card-footer">
+                            <span class="price">Rp 38.000</span>
+                            <button class="btn-add" onclick="addToCart('Iced Uji Matcha Oat Latte', 38000)"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="menu-card" data-category="minuman">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80" alt="Berry Mojito Mocktail">
+                    </div>
+                    <div class="card-body">
+                        <div class="rating"><i class="fa-solid fa-star"></i> 4.8 (150)</div>
+                        <h3>Sparkling Berry Mojito</h3>
+                        <p>Perpaduan rasa segar dari buah strawberry, mint alami, jeruk nipis, dan air soda yang menyegarkan.</p>
+                        <div class="card-footer">
+                            <span class="price">Rp 32.000</span>
+                            <button class="btn-add" onclick="addToCart('Sparkling Berry Mojito', 32000)"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section id="keunggulan" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Mengapa Memilih Savoria?</h2>
+                <p>Komitmen kami untuk memberikan pengalaman kuliner terbaik bagi Anda</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-leaf"></i></div>
+                    <h3>Bahan 100% Segar</h3>
+                    <p>Kami hanya menggunakan bahan-bahan berkualitas terbaik yang didatangkan langsung setiap hari.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                    <h3>Pengiriman Super Cepat</h3>
+                    <p>Kurir khusus kami memastikan hidangan tiba di tangan Anda tetap hangat dan sempurna.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Higienis & Terjamin</h3>
+                    <p>Standar kebersihan kelas tinggi diterapkan dalam setiap tahapan persiapan hingga pengiriman.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section id="testimoni" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Apa Kata Pelanggan Kami</h2>
+                <p>Kepercayaan dan kebahagiaan mereka adalah prioritas utama kami</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p>"Rasanya benar-benar luar biasa! Burgernya masih hangat dan juicy banget pas sampai di rumah. Paling pas buat makan malam sekeluarga."</p>
+                    <div class="user-info">
+                        <strong>Andini Wijaya</strong>
+                        <span>Food Lover & Content Creator</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p>"Proses pemesanannya sangat cepat dan gampang. Salmon bowl-nya selalu jadi menu favorit saya setiap makan siang di kantor."</p>
+                    <div class="user-info">
+                        <strong>Budi Santoso</strong>
+                        <span>Software Engineer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <i class="fa-solid fa-utensils"></i> Savoria<span>.</span>
+                </a>
+                <p>Platform jual beli makanan terpercaya dengan hidangan lezat kelas dunia langsung ke tempat Anda.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Navigasi</h4>
+                <ul>
+                    <li><a href="#beranda">Beranda</a></li>
+                    <li><a href="#kategori">Kategori</a></li>
+                    <li><a href="#menu">Menu Populer</a></li>
+                    <li><a href="#keunggulan">Tentang Kami</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Kontak Kami</h4>
+                <ul>
+                    <li><i class="fa-solid fa-envelope"></i> hello@savoria-food.com</li>
+                    <li><i class="fa-solid fa-phone"></i> +62 812-3456-7890</li>
+                    <li><i class="fa-solid fa-location-dot"></i> Jakarta Selatan, Indonesia</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Savoria Inc. Semua Hak Dilindungi. Dibuat untuk GitHub Pages.</p>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-modal-content">
+            <div class="cart-modal-header">
+                <h3><i class="fa-solid fa-bag-shopping"></i> Keranjang Belanja</h3>
+                <span class="close-btn" onclick="toggleCart()">&times;</span>
+            </div>
+            <div class="cart-modal-body" id="cart-items">
+                <p class="empty-msg">Keranjang Anda masih kosong.</p>
+            </div>
+            <div class="cart-modal-footer">
+                <div class="total-price">
+                    <span>Total:</span>
+                    <strong id="cart-total">Rp 0</strong>
+                </div>
+                <button class="btn btn-primary btn-block" onclick="checkout()">Lanjut ke Pembayaran <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
